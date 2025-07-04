@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <h1>請輸入成績</h1>
+    <script>
+        var pass = 0;
+        var fail = 0;
+        var total = 0;
+        var average = 0;
+        do {
+            // 請輸入成績N次, 直到輸入-1時結束並統計出如下
+            var input = prompt("請輸入成績");
+            if (input == "-1") {
+                alert("輸入結束，開始計算成績");
+                break;
+            }
+            if (input == null) {
+                alert("成績錯誤，請重新輸入");
+                continue;
+            } else if (input.trim() == "") {
+                alert("成績不能空白，請重新輸入");
+                continue;
+            } else if (isNaN(Number(input))) {
+                alert("非數值，請重新輸入");
+                continue;
+            }
+            var score = Number(input);
+            if (score < 0 || score > 100) {
+                alert("成績範圍輸入錯誤，請重新輸入");
+                continue;
+            }10
+            if (Number(score) >= 60 && Number(score) <= 100) {
+                pass++;
+            } else if (Number(score) >= 0 && Number(score) <= 59) {
+                fail++;
+            }
+            total += parseInt(score);
+            average = (Number(total) / (Number(pass) + Number(fail))).toFixed(2);
+        } while (1);
+        document.write("及格人數:" + pass + "<br>");
+        document.write("不及格人數:" + fail + "<br>");
+        document.write("全班總分:" + total + "<br>");
+        document.write("全班平均:" + average + "<br>");
+    </script>
+</body>
+
+</html>
