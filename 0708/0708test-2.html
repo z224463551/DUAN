@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>樂透選擇</h1>
+    <h3>請選擇彩卷</h3>
+    <hr>
+    <button onclick="l1()">大樂透</button>
+    <button onclick="l2()">威力彩</button>
+    <button onclick="l3()">今彩539</button><br>
+    <p id="result"></p>
+    <script>
+        // 大樂透
+        function l1() {
+            let mn = [];
+            while (mn.length < 6) {
+                let num = Math.floor(Math.random() * 49) + 1;
+                if (!mn.includes(num)) {
+                    mn.push(num);
+                }
+            }
+            let sn = 0;
+            while (true) {
+                let num = Math.floor(Math.random() * 8) + 1;
+                if (!mn.includes(num)) {
+                    sn = num;
+                    break;
+                }
+            }
+            document.getElementById("result").innerHTML +=
+                " 大樂透一般號: " + mn + "<br>" +
+                " 排序後: " + mn.sort((a, b) => a - b) + "<br>" +
+                " 特別號: " + sn + "<br><hr>";
+        }
+        // console.log("一般號:" + mn);
+        // console.log("已排序一般號:" + mn.sort((a, b) => a - b));
+        // console.log("特別號:" + sn);
+
+        // 威力彩
+        function l2() {
+            let mn2 = [];
+            while (mn2.length < 6) {
+                let num = Math.floor(Math.random() * 38) + 1;
+                if (!mn2.includes(num)) {
+                    mn2.push(num);
+                }
+            }
+            let sn2 = 0;
+            while (true) {
+                let num = Math.floor(Math.random() * 8) + 1;
+                if (!mn2.includes(num)) {
+                    sn2 = num;
+                    break;
+                }
+            }
+            // console.log("一般號:" + mn2);
+            // console.log("已排序一般號:" + mn2.sort((a, b) => a - b));;
+            // console.log("特別號:" + sn2);
+            document.getElementById("result").innerHTML +=
+                " 威力彩一般號: " + mn2 + "<br>" +
+                " 排序後: " + mn2.sort((a, b) => a - b) + "<br>" +
+                " 特別號: " + sn2 + "<br><hr>";
+        }
+
+        // 今彩539
+        function l3() {
+            let mn3 = [];
+            while (mn3.length < 6) {
+                let num = Math.floor(Math.random() * 38) + 1;
+                if (!mn3.includes(num)) {
+                    mn3.push(num);
+                }
+            }
+            // console.log("今彩539一般號:" + mn3);
+            // console.log("已排序今彩539一般號:" + mn3.sort((a, b) => a - b));
+            document.getElementById("result").innerHTML +=
+                " 今彩539一般號: " + mn3 + "<br>" +
+                " 排序後: " + mn3.sort((a, b) => a - b) + "<br><hr>";
+        }
+    </script>
+</body>
+
+</html>
